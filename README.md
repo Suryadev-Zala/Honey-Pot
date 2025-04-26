@@ -83,8 +83,6 @@ The system uses a decoupled Client-Server architecture:
     *   Displays dashboards, lists, forms, and visualizations.
     *   Receives and displays real-time attack data.
 
-*(See Figure 1: Data Flow Diagram and Figure 2: Layered Architecture in the [project report](link-to-your-report-if-public) for visual details)*
-
 ---
 
 ## 🚀 Getting Started
