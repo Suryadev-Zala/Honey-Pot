@@ -1,40 +1,202 @@
-## Dynamic Honeypot Orchestrator with Web Dashboard
+# Dynamic Honeypot Orchestrator with Web Dashboard 🍯
 
-This project introduces the Honeypot Orchestrator, a comprehensive web application designed to streamline the entire honeypot lifecycle[cite: 2]. It allows users to easily configure and deploy various honeypot types (SSH, Web) as Docker containers, automatically aggregates attack data, provides real-time monitoring, and offers intuitive data visualization[cite: 3, 4].
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <!-- Choose your license -->
+[![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)]() <!-- Specify Python version -->
+[![Node.js Version](https://img.shields.io/badge/node-18.x%2B-green.svg)]() <!-- Specify Node.js version -->
+<!-- Add other badges as needed: build status, code coverage, etc. -->
 
-### Features
+A comprehensive web application designed to streamline the deployment, management, monitoring, and analysis of network honeypots using Docker, featuring a real-time dashboard, attack simulation, and AI-powered threat insights.
 
-* **Simplified Deployment and Management:** Easily deploy and remove common honeypot services (SSH, Web) via a graphical interface, abstracting Docker complexities[cite: 14].
-* **Centralized Monitoring and Data Aggregation:** Automatically collect attack logs from all deployed honeypots into a single, persistent store[cite: 15].
-* **Enhanced Testing Capabilities:** Offer sophisticated attack simulation features with adjustable complexity and types to validate honeypot effectiveness and security posture[cite: 16].
-* **AI-Driven Insights:** Integrate with Google's Gemini AI to provide automated analysis of attack patterns and actionable security recommendations[cite: 5, 17].
-* **Intuitive Web-Based Management:** Manage honeypots (create, view, delete) and simplify Docker deployment for standard honeypots with state recovery[cite: 24].
-* **Automated Threat Collection:** Ensure data integrity with automated threat collection and deduplication[cite: 25].
-* **Real-time Visibility:** Gain real-time visibility through comprehensive dashboards, timelines, and statistical breakdowns[cite: 25].
-* **Realistic Testing Environment:** Simulate diverse network attacks (Login Brute-Force, SQLi, XSS, Port Scan, DoS, etc.) with adjustable complexity[cite: 27].
-* **Intelligent Insights:** Get intelligent insights via automated pattern analysis and tailored security recommendations through integrated Google Gemini AI[cite: 28].
+**Authors:**
+*   Devrajsinh Shripalsinh Jhala
+*   Suryadevsinh Harishchandrasinh Zala
+*   Udit Chaudhary
+*   Gladwin Kurian
+*(Birla Institute of Technology and Sciences, Pilani)*
 
-### Technology Stack
+---
 
-* **Backend:** Python with the FastAPI framework, interacting with Docker via `docker-py`[cite: 20]. Data is stored in JSON files[cite: 21]. Google Gemini API is used for AI features[cite: 21].
-* **Frontend:** TypeScript with the Next.js/React framework for the user interface[cite: 22]. Tailwind CSS is used for styling[cite: 22]. Chart.js enables data visualization, and Lucide React provides iconography[cite: 23].
-* **Core Concepts:** Asynchronous programming, RESTful API design, containerization (Docker)[cite: 23].
+## Overview
 
-### Architecture
+Managing network honeypots often involves complex setups, manual log aggregation, and fragmented tools. This project, the **Dynamic Honeypot Orchestrator**, tackles these challenges by providing a unified, intuitive web-based platform.
 
-The project is built upon a decoupled Client-Server architecture[cite: 38].
+It simplifies the entire honeypot lifecycle:
+*   **Easy Deployment:** Deploy common honeypot types (SSH, Web) as Docker containers via a simple UI.
+*   **Centralized Monitoring:** Automatically aggregate attack logs from all honeypots.
+*   **Real-time Visibility:** Monitor attacks as they happen through an interactive dashboard.
+*   **Data Visualization:** Understand attack patterns with charts and summaries.
+*   **Attack Simulation:** Test your honeypot setups and security posture with built-in attack generators.
+*   **AI-Powered Insights:** Leverage Google's Gemini AI for automated threat analysis and security recommendations.
 
-* **Backend:** Developed using Python and FastAPI, serving as the central control plane and data processing engine[cite: 39]. It exposes a RESTful API for management and data retrieval, manages honeypot configurations, orchestrates Docker container lifecycles, persists application state using file-based JSON storage, interacts with the Google Gemini API, and manages connections for real-time attack data[cite: 40, 41]. Background tasks handle periodic operations like synchronizing attack logs[cite: 42].
-* **Frontend:** A modern web application built with Next.js and React (TypeScript), providing the graphical user interface[cite: 43]. It interacts with the backend exclusively through the defined REST API for fetching data and initiating actions[cite: 44]. It also maintains a connection to the backend for near real-time attack information display[cite: 45].
+This platform aims to lower the barrier to entry for effective honeypot utilization, empowering cybersecurity professionals, researchers, and enthusiasts.
 
-### Getting Started
+---
 
-(Details on how to install, set up, and run the project would typically go here. This information was not explicitly provided in the report content.)
+## ✨ Key Features
 
-### Contributing
+*   **Web-Based Management:** Intuitive interface to Create, View, and Delete honeypot instances.
+*   **Simplified Docker Deployment:** Abstract away Docker complexities for deploying standard honeypots (e.g., `cowrie/cowrie`, `vulnerables/web-dvwa`). Handles state recovery on restart.
+*   **Automated Log Aggregation:** Collects, parses, and deduplicates attack data from deployed honeypots into a central store.
+*   **Real-Time Dashboard:** Visualize live attack data, timelines, source IPs, targeted ports, and attack types with IST timestamps.
+*   **Comprehensive Visualization:** Includes timeline charts, daily activity bar graphs, attack type distribution graphs, and statistical summaries (using Chart.js).
+*   **Sophisticated Attack Simulation:**
+    *   Test single, complex attacks (SQLi, XSS, Port Scan, DoS, etc.) with adjustable complexity levels.
+    *   Run sustained SSH brute-force campaigns with configurable parameters.
+*   **AI-Driven Analysis:** Integrated Google Gemini AI provides:
+    *   Automated analysis of attack patterns.
+    *   Actionable security recommendations based on observed activity.
+*   **Responsive UI:** Modern frontend built with Next.js, React, TypeScript, and Tailwind CSS.
 
-(Details on how to contribute to the project would typically go here. This information was not explicitly provided in the report content.)
+---
 
-### License
+## 🛠️ Technology Stack
 
-(Details on the project's license would typically go here. This information was not explicitly provided in the report content.)
+*   **Backend:**
+    *   Framework: Python / FastAPI
+    *   Container Orchestration: Docker / `docker-py` library
+    *   Data Persistence: JSON Files
+    *   AI Integration: Google Gemini API
+    *   Core: Asynchronous programming (asyncio)
+*   **Frontend:**
+    *   Framework: TypeScript / Next.js / React
+    *   Styling: Tailwind CSS
+    *   Charting: Chart.js
+    *   Icons: Lucide React
+*   **Core Concepts:** RESTful API Design, Containerization (Docker)
+
+---
+
+## 🏛️ Architecture
+
+The system uses a decoupled Client-Server architecture:
+
+*   **Backend (FastAPI):** Acts as the control plane.
+    *   Handles API requests from the frontend.
+    *   Manages honeypot configurations and lifecycle (via Docker API).
+    *   Persists state (honeypots, attacks) to JSON files.
+    *   Runs background tasks for log polling from honeypot containers.
+    *   Interacts with the Google Gemini API for analysis.
+    *   Pushes real-time updates to the frontend (details needed - likely WebSockets or SSE).
+*   **Frontend (Next.js):** Provides the user interface.
+    *   Communicates with the backend via REST API.
+    *   Displays dashboards, lists, forms, and visualizations.
+    *   Receives and displays real-time attack data.
+
+*(See Figure 1: Data Flow Diagram and Figure 2: Layered Architecture in the [project report](link-to-your-report-if-public) for visual details)*
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+*   Docker Engine installed and running.
+*   Python 3.x installed.
+*   Node.js (v18.x or later) and npm/yarn installed.
+*   Google Gemini API Key (for AI features).
+
+### Installation
+
+1.  **Clone the repository:**
+    ```
+    git clone https://github.com/your-username/your-repo-name.git
+    cd your-repo-name
+    ```
+
+2.  **Backend Setup:**
+    ```
+    cd backend # Or your backend directory name
+    # [TODO: Add command for creating a virtual environment, e.g., python -m venv venv]
+    # [TODO: Add command to activate virtual environment]
+    pip install -r requirements.txt
+    # [TODO: Add instructions for setting up environment variables, e.g., .env file for GEMINI_API_KEY]
+    ```
+
+3.  **Frontend Setup:**
+    ```
+    cd ../frontend # Or your frontend directory name
+    npm install
+    # or
+    # yarn install
+    # [TODO: Add instructions for any frontend environment variables if needed]
+    ```
+
+### Running the Application
+
+1.  **Start the Backend:**
+    ```
+    cd backend # Or your backend directory name
+    # [TODO: Add command to start FastAPI server, e.g., uvicorn main:app --reload]
+    # Ensure Docker daemon is running!
+    ```
+    The backend API will typically be available at `http://localhost:8000`.
+
+2.  **Start the Frontend:**
+    ```
+    cd ../frontend # Or your frontend directory name
+    npm run dev
+    # or
+    # yarn dev
+    ```
+    The frontend development server will typically be available at `http://localhost:3000`.
+
+3.  **Access the Dashboard:**
+    Open your web browser and navigate to `http://localhost:3000`.
+
+---
+
+## 📋 Usage
+
+1.  **Navigate** to the web dashboard in your browser.
+2.  **Deploy Honeypots:** Use the UI to define and deploy new honeypot instances (e.g., select SSH or Web type, provide a name). The backend will orchestrate the Docker container creation.
+3.  **Monitor Attacks:** View the dashboard for real-time attack logs, statistics, and visualizations. Data is collected automatically from active honeypots.
+4.  **Simulate Attacks:** Go to the simulation section to test your honeypots:
+    *   Generate single complex attacks (SQLi, XSS, etc.) with varying complexity.
+    *   Initiate longer SSH brute-force campaigns.
+5.  **Get AI Insights:** Use the AI analysis panel to send aggregated attack data to Google Gemini and receive summaries and security recommendations.
+6.  **Manage Honeypots:** View the status of deployed honeypots and delete them when no longer needed via the UI.
+
+---
+
+## ✅ Operational Benefits
+
+*   **Reduced Operational Overhead:** Centralized management saves time and effort.
+*   **Increased Efficiency:** Automates log collection and parsing.
+*   **Improved Threat Visibility:** Unified, real-time view across honeypots.
+*   **Enhanced Situational Awareness:** Quick insights into trends and attack vectors.
+*   **Accelerated Analysis:** AI provides rapid initial assessments.
+*   **Simplified Testing:** Integrated simulator for easy validation.
+*   **Lowered Barrier to Entry:** User-friendly interface for broader accessibility.
+*   **Cost-Effective:** Leverages open-source components.
+
+---
+
+## 🔮 Future Work
+
+*   **Database Integration:** Replace file-based JSON persistence with a robust database (e.g., PostgreSQL, MongoDB) for better scalability and transactional integrity.
+*   **Expanded Honeypot Support:** Add easy deployment for more honeypot types (e.g., RDP, FTP, Telnet, ICS/SCADA).
+*   **Role-Based Access Control (RBAC):** Implement user roles and permissions.
+*   **SIEM Integration:** Add options to forward aggregated logs to Security Information and Event Management (SIEM) systems.
+*   **Enhanced Simulation:** More complex and configurable attack scenarios and campaigns.
+*   **Improved Alerting:** Configurable alerts based on specific attack patterns or thresholds.
+
+---
+
+## 🙌 Contributing
+
+Contributions are welcome! Please feel free to open an issue or submit a pull request.
+
+[TODO: Add contribution guidelines - e.g., coding style, testing requirements, PR process]
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+<!-- Make sure you actually add a LICENSE file to your repo -->
+
+---
+
+*This project was developed as part of academic work at the Birla Institute of Technology and Sciences, Pilani.*
+
